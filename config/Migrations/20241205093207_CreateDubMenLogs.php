@@ -1,0 +1,69 @@
+<?php
+
+declare(strict_types=1);
+
+use Migrations\AbstractMigration;
+
+class CreateDubMenLogs extends AbstractMigration
+{
+    /**
+     * Change Method.
+     *
+     * More information on this method is available here:
+     * https://book.cakephp.org/phinx/0/en/migrations.html#the-change-method
+     * @return void
+     */
+    public function change(): void
+    {
+        $table = $this->table('dub_men_logs');
+        $table->addColumn('mypage_id', 'integer', [
+            'default' => null,
+            'limit' => 11,
+            'null' => false,
+        ]);
+        $table->addColumn('user_id', 'integer', [
+            'default' => null,
+            'limit' => 11,
+            'null' => false,
+        ]);
+        $table->addColumn('status', 'string', [
+            'default' => null,
+            'limit' => 255,
+            'null' => true,
+        ]);
+        $table->addColumn('type', 'string', [
+            'default' => null,
+            'limit' => 255,
+            'null' => true,
+        ]);
+        $table->addColumn('action', 'string', [
+            'default' => null,
+            'limit' => 255,
+            'null' => false,
+        ]);
+        $table->addColumn('target', 'string', [
+            'default' => null,
+            'limit' => 255,
+            'null' => true,
+        ]);
+        $table->addColumn('original', 'text', [
+            'default' => null,
+            'null' => true,
+        ]);
+        $table->addColumn('after', 'text', [
+            'default' => null,
+            'null' => true,
+        ]);
+        $table->addColumn('created', 'datetime', [
+            'default' => null,
+            'null' => false,
+        ]);
+        $table->addColumn('modified', 'datetime', [
+            'default' => null,
+            'null' => false,
+        ]);
+        $table->addIndex(['mypage_id']);
+        $table->addIndex(['user_id']);
+        $table->create();
+    }
+}
