@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 /**
  * baserCMS :  Based Website Development Project <https://basercms.net>
@@ -12,8 +13,6 @@ declare(strict_types=1);
 
 namespace DubMenbers\Controller;
 
-use App\Controller\AppController as BaseController;
+use BaserCore\Controller\BcFrontAppController;
 
-class AppController extends BaseController
-{
-}
+class AppController extends BcFrontAppController {}
